@@ -1,17 +1,16 @@
-#!/bin/bash
-# Author: Haitham Aouati
+#!/bin/bash                                                # Author: Haitham Aouati
 
 # font color
 black=$'\e[0;30m'
 red=$'\e[0;31m'
 green=$'\e[0;32m'
-yellow=$'\e[0;33m'
-blue=$'\e[0;34m'                                           purple=$'\e[0;35m'
-cyan=$'\e[0;36m'                                           gray=$'\e[0;90m'
+yellow=$'\e[0;33m'                                         blue=$'\e[0;34m'
+purple=$'\e[0;35m'
+cyan=$'\e[0;36m'
+gray=$'\e[0;90m'
 light_green=$'\e[0;92m'
 white=$'\e[0;37m'
-
-# text format
+                                                           # text format
 reset=$'\e[0m'
 bold=$'\e[1m'
 faint=$'\e[2m'
@@ -22,8 +21,7 @@ underline=$'\e[4m'
 bg_black=$'\e[0;40m'
 bg_red=$'\e[0;41m'
 bg_green=$'\e[0;42m'
-
-# clear screen
+                                                           # clear screen
 clear
 
 clear
@@ -49,14 +47,17 @@ echo -e "$reset Author:$blue Haitham Aouati"
 echo -e "$reset Version:$yellow 1.0 $white\n"
 echo -e "$reset Repo:$gray https://github.com/haithamaouati/penguin $reset\n"
 
-read -p "Press any key to resume ..."
+read -p "Press any key to resume..."
+echo -e "\n$green[*]$reset Updating packages...\n"
 
 # Update all installed packages to the latest
 pkg update -y
 
+echo -e "\n$green[*]$reset Upgrading packages...\n"
 # Upgrade all installed packages to the latest
 pkg upgrade -y
 
+echo -e "\n$green[*]$reset Installing packages...\n"
 # Fast, scalable, distributed revision control system7
 pkg install git -y
 
@@ -94,9 +95,13 @@ pkg install unzip -y
 pkg install wget -y
 
 # Command line tool for transferring data with URL syntax
-pkg instsll curl
+pkg install curl -y
 
+echo -e "\n$green[*]$reset Packages installed."
+echo -e "\n$green[*]$reset Subscribing to additional repositories:\n"
 # Package repository containing programs for rooted devices
+pkg install root-repo -y
 
-read -p "Press any key to exit ..."
+echo -e "\n$green[*]$reset Done.$reset\n"
+read -p "Press any key to exit..."
 exit
