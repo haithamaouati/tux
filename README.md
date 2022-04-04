@@ -6,7 +6,7 @@
 Penguin 🐧 script - All packages in one script for termux app.
 ## Screenshots
 
-![Screenshot](https://raw.githubusercontent.com/haithamaouati/penguin/main/IMG_20220404_023951.jpg?raw=true "Optional Title")
+![Screenshot](https://raw.githubusercontent.com/haithamaouati/penguin/main/screenshot.jpg?raw=true "Optional Title")
 
 ## Table of Contents
 
