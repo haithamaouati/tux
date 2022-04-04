@@ -46,10 +46,15 @@ Penguin 🐧 script - All packages in one script for termux app.
 
 ## Usage
 
-    Execute bash script
+ 1. Execute bash script
     ```
     bash penguin.sh
     ```
+
+2. Execute bash script (method 2)
+   ```
+   ./penguin.sh
+   ```
 
 ## Features
 
