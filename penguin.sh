@@ -6,10 +6,8 @@ black=$'\e[0;30m'
 red=$'\e[0;31m'
 green=$'\e[0;32m'
 yellow=$'\e[0;33m'
-blue=$'\e[0;34m'
-purple=$'\e[0;35m'
-cyan=$'\e[0;36m'
-gray=$'\e[0;90m'
+blue=$'\e[0;34m'                                           purple=$'\e[0;35m'
+cyan=$'\e[0;36m'                                           gray=$'\e[0;90m'
 light_green=$'\e[0;92m'
 white=$'\e[0;37m'
 
@@ -32,18 +30,19 @@ clear
 
 # ascii banner
 cat << "EOF"
-      .---.
-     /     \
-     \.@-@./
-     /`\_/`\
-    //  _  \\ Penguin
-   | \     )|_
-  /`\_`>  <_/ \
-  \__/'---'\__/
+          .---.
+         /     \
+         \.@-@./
+         /`\_/`\
+        //  _  \\
+       | \     )|_
+      /`\_`>  <_/ \
+      \__/'---'\__/
 EOF
 
-echo -e "$bg_red[!] Under dev [!]\n"
-
+echo -e "$bg_red[!] Under development [!]\n"
+echo -e "$reset         Penguin"
+echo -e "All packages in one script\n"
 sleep 3
 
 echo -e "$reset Author:$blue Haitham Aouati"
@@ -81,6 +80,10 @@ pkg install neofetch -y
 
 # Simple yet fancy CPU architecture fetching tool
 pkg install cpufetch
+
+# A command-line Git information tool written in Rust
+pkg install onefetch -y
+
 # Tools for working with zip files
 pkg install zip -y
 
