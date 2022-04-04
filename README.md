@@ -3,11 +3,10 @@
 ![GitHub repository](https://img.shields.io/badge/haithamaouati-penguin-blue?style=flat-square&logo=github)
 ![GitHub version](https://img.shields.io/badge/version-1.0-yellow?style=flat-square)
 
-Penguin 🐧 script - All in one.
-Install packages in termux app.
+Penguin 🐧 script - All packages in one script for termux app.
 ## Screenshots
 
-![Screenshot](https://github.com/haithamaouati/Garou/blob/main/screenshot.png?raw=true "Optional Title")
+![Screenshot](https://raw.githubusercontent.com/haithamaouati/penguin/main/IMG_20220404_023951.jpg?raw=true "Optional Title")
 
 ## Table of Contents
 
@@ -33,19 +32,21 @@ Install packages in termux app.
 
 3. Clone the repository
     ```
-    git clone https://github.com/haithamaouati/Garou.git
+    git clone https://github.com/haithamaouati/penguin.git
     ```
-4. Change to Garou directory
+4. Change to penguin directory
     ```
-    cd Garou
+    cd penguin
     ```
     
 5. Change the access mode
     ```
-    chmod +x Garou.py
+    chmod +x penguin.sh
     ```
 
 ## Usage
+
+6. Execute penguin.sh script
     ```
     bash penguin.sh
     ```
