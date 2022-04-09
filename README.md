@@ -58,8 +58,11 @@ Penguin 🐧 script - All packages in one script for termux app.
 
 ## Features
 
-   - [x] Update & upgrade packages
+   - [x] Update packages
+   - [x] Upgrade packages
+   - [x] Allow permissions
    - [x] Install packages
+   - [x] Clone repositories
    - [ ] Install root
 
 ## Environments
