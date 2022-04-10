@@ -93,7 +93,7 @@ function permission () {
 }
 
 function install () {
-    echo -e "\n$light_green[*]$reset Installing packages...\n"                                          pkg upgrade -yy
+    echo -e "\n$light_green[*]$reset Installing packages...\n"
     pkg install termux-auth -yy
     pkg install git -yy
     pkg install nano -yy
