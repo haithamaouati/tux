@@ -66,7 +66,7 @@ Penguin 🐧 script - All packages in one script for termux app.
 
 ## Environments
 
-* Termux
+* [**Termux**](https://termux.com)
 
 ## Disclaimer
 
