@@ -31,11 +31,6 @@ bg_green=$'\e[0;42m'
 
 alias setup="bash seutp.sh"
 
-if (( $EUID == 0 )); then
-    echo "Please do not run as root"
-    exit
-fi
-
 clear
 
 cat << "EOF"
