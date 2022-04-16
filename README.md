@@ -22,12 +22,12 @@ Penguin 🐧 script - All packages in one script for termux app.
 
 1. Update & upgrade packages
     ```
-    pkg update && apt upgrade -y
+    pkg update -yy && apt upgrade -yy
     ```
     
 2. Install git package
     ```
-    pkg install git -y
+    pkg install git -yy
     ```
 
 3. Clone the repository
