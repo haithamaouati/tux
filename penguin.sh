@@ -1,9 +1,13 @@
 #!/bin/bash
 # Author: Haitham Aouati
+# Lastest update: 16/04/2022
 
-# text color                                            black=$'\e[0;30m'
-red=$'\e[0;31m'                                         green=$'\e[0;32m'
-yellow=$'\e[0;33m'                                      blue=$'\e[0;34m'
+# text color
+black=$'\e[0;30m'
+red=$'\e[0;31m'
+green=$'\e[0;32m'
+yellow=$'\e[0;33m'
+blue=$'\e[0;34m'
 purple=$'\e[0;35m'
 cyan=$'\e[0;36m'
 gray=$'\e[0;90m'
@@ -12,7 +16,8 @@ light_green=$'\e[0;92m'
 light_yellow=$'\e[0;93m'
 light_blue=$'\e[0;94m'
 white=$'\e[0;37m'
-                                                        # text format
+
+# text format
 reset=$'\e[0m'
 bold=$'\e[1m'
 faint=$'\e[2m'
@@ -48,7 +53,7 @@ echo -e "$reset$bold         Penguin$reset"
 echo -e "All packages in one script\n"
 sleep 3
 echo -e "$reset Author:$blue Haitham Aouati"
-echo -e "$reset Version:$light_yellow 1.1 $white\n"
+echo -e "$reset Version:$light_yellow 1.3 $white\n"
 echo -e "$reset Repo: https://github.com/haithamaouati/penguin\n"
 
 un=$(whoami) # User name
@@ -69,6 +74,7 @@ echo -e "$light_green Time & date:$reset $td\n"
 
 function update () {
     echo -e "\n$light_green[*]$reset Updating packages...\n"
+    sleep 3
     pkg update -yy
     echo -e "\n$light_green[✓]$reset Packages updated."
     exit
@@ -76,25 +82,33 @@ function update () {
 
 function upgrade () {
     echo -e "\n$light_green[*]$reset Upgrading packages...\n"
+    sleep 3
     pkg upgrade -yy
     echo -e "\n$light_green[✓]$reset Packages upgrated."
     exit
 }
 
-function permission () {
-    echo -e "\n$light_green[*]$reset Allowing permissions...\n"
+function setup () {
+    echo -e "\n$light_green[*]$reset Setup storage..."
+    sleep 3
+    echo -e "$light_green[*]$reset Allowing permissions...\n"
     if [[ -d storage ]] ; then
-        echo -e "$light_green[✓]$reset Permissions Allowed.\n"
+        ls -d storage
+        echo -e "\n$light_yellow[!]$reset Permissions already present.\n"
     else
         termux-setup-storage
-        echo -e "$light_green[✓]$reset Permissions Allowed.\n"
+        ls -d storage
+        echo -e "\n$light_green[✓]$reset Permissions Allowed.\n"
         exit
     fi
 }
 
 function install () {
     echo -e "\n$light_green[*]$reset Installing packages...\n"
+    sleep 3
     pkg install termux-auth -yy
+    pkg install tsu -yy
+    pkg install termux-api -yy
     pkg install git -yy
     pkg install nano -yy
     pkg install vim -yy
@@ -103,11 +117,22 @@ function install () {
     pkg install figlet -yy
     pkg install zip -yy
     pkg install unzip -yy
+    pkg install unrar -yy
     pkg install openssh -yy
     pkg install wget -yy
     pkg install curl -yy
     echo -e "\n$light_green[✓]$reset Packages installed."
     exit
+}
+
+function check () {
+    echo -e "\n$light_green[*]$reset Checking root...\n"
+    sleep 3
+    if (( $EUID == 0 )); then
+        echo -e "$light_green[✓]$reset You are root.\n"
+    else
+        echo -e "$light_red[×]$reset You are not root.\n"
+    fi
 }
 
 function close () {
@@ -118,7 +143,8 @@ function close () {
 echo -e "$light_yellow 1)$reset Update Packages"
 echo -e "$light_yellow 2)$reset Upgrade Packages"
 echo -e "$light_yellow 3)$reset Install Packages"
-echo -e "$light_yellow 4)$reset Allow Permissions"
+echo -e "$light_yellow 4)$reset Setup Storage"
+echo -e "$light_yellow 5)$reset Check Root"
 echo -e "$light_yellow 0)$reset Exit\n"
 
 read -p "#? " -e -n 1 -s choice;
@@ -126,7 +152,8 @@ read -p "#? " -e -n 1 -s choice;
             1) update;;
             2) upgrade;;
             3) install;;
-            4) permission;;
+            4) setup;;
+            5) check;;
             0) close;;
             *) echo -e "\n$red[!]$reset Not a valid choice.\n";;
     esac
