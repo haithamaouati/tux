@@ -31,6 +31,11 @@ bg_green=$'\e[0;42m'
 
 alias setup="bash seutp.sh"
 
+if (( $EUID == 0 )); then
+    echo "Please do not run as root"
+    exit
+fi
+
 clear
 
 cat << "EOF"
@@ -114,8 +119,7 @@ function install () {
     pkg install unzip -yy
     pkg install unrar -yy
     pkg install openssh -yy
-    pkg install wget -yy
-    pkg install curl -yy
+    pkg install wget -yy    pkg install curl -yy
     echo -e "\n$light_green[✓]$reset Packages installed."
     exit
 }
@@ -130,6 +134,15 @@ function check () {
     fi
 }
 
+function uprepo () {
+    echo -e "\n$light_green[*]$reset Checking updates..."
+    sleep 3
+    echo -e "\n$light_green[*]$reset Updating repo...\n"
+    sleep 3
+    git pull  "https://github.com/haithamaouati/penguin.git"
+    echo -e "\n$light_green[✓]$reset Pepo updated.\n"
+}
+
 function close () {
     echo -e "\n$reset Time spend:$light_green $SECONDS seconds\n"
     exit
@@ -140,6 +153,7 @@ echo -e "$light_yellow 2)$reset Upgrade Packages"
 echo -e "$light_yellow 3)$reset Install Packages"
 echo -e "$light_yellow 4)$reset Setup Storage"
 echo -e "$light_yellow 5)$reset Check Root"
+echo -e "$light_yellow 6)$reset Update Repo"
 echo -e "$light_yellow 0)$reset Exit\n"
 
 read -p "#? " -e -n 1 -s choice;
@@ -149,6 +163,7 @@ read -p "#? " -e -n 1 -s choice;
             3) install;;
             4) setup;;
             5) check;;
+            6) uprepo;;
             0) close;;
             *) echo -e "\n$red[!]$reset Not a valid choice.\n";;
     esac
