@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author: Haitham Aouati
-# Lastest update: 16/04/2022
+# Lastest update: 17/04/2022
 
 # text color
 black=$'\e[0;30m'
