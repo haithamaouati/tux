@@ -131,9 +131,7 @@ function check () {
 }
 
 function uprepo () {
-    echo -e "\n$light_green[*]$reset Checking updates..."
-    sleep 3
-    echo -e "$light_green[*]$reset Updating repo...\n"
+    echo -e "$light_green[*]$reset Updating repository...\n"
     sleep 3
     git pull https://github.com/haithamaouati/penguin
     echo -e "\n$light_green[✓]$reset Repository updated.\n"
