@@ -1,5 +1,6 @@
 #!/bin/bash                                             # Author: Haitham Aouati
-# Lastest update: 17/04/2022                                                                                    # text color                                            black=$'\e[0;30m'                                       red=$'\e[0;31m'
+# Lastest update: 17/04/2022
+                                                                             # text color                                            black=$'\e[0;30m'                                       red=$'\e[0;31m'
 green=$'\e[0;32m'
 yellow=$'\e[0;33m'
 blue=$'\e[0;34m'
@@ -17,7 +18,8 @@ reset=$'\e[0m'
 bold=$'\e[1m'
 faint=$'\e[2m'
 italics=$'\e[3m'
-underline=$'\e[4m'                                      
+underline=$'\e[4m'
+
 # background color
 bg_black=$'\e[0;40m'
 bg_red=$'\e[0;41m'
@@ -47,7 +49,7 @@ echo -e "$reset$bold         Penguin$reset"
 echo -e "All packages in one script\n"
 sleep 3
 echo -e "$reset Author:$blue Haitham Aouati"
-echo -e "$reset Version:$light_yellow 1.3 $white\n"
+echo -e "$reset Version:$light_yellow 1.4 $white\n"
 echo -e "$reset Repo: https://github.com/haithamaouati/penguin\n"
 
 un=$(whoami) # User name
@@ -133,8 +135,8 @@ function uprepo () {
     sleep 3
     echo -e "$light_green[*]$reset Updating repo...\n"
     sleep 3
-    curl -o penguin.sh https://raw.githubusercontent.com/haithamaouati/penguin/main/penguin.sh
-    echo -e "\n$light_green[✓]$reset Pepo updated.\n"
+    git pull https://github.com/haithamaouati/penguin
+    echo -e "\n$light_green[✓]$reset Repository updated.\n"
 }
 
 function close () {
