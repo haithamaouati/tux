@@ -1,10 +1,5 @@
-#!/bin/bash
-# Author: Haitham Aouati
-# Lastest update: 17/04/2022
-
-# text color
-black=$'\e[0;30m'
-red=$'\e[0;31m'
+#!/bin/bash                                             # Author: Haitham Aouati
+# Lastest update: 17/04/2022                                                                                    # text color                                            black=$'\e[0;30m'                                       red=$'\e[0;31m'
 green=$'\e[0;32m'
 yellow=$'\e[0;33m'
 blue=$'\e[0;34m'
@@ -22,8 +17,7 @@ reset=$'\e[0m'
 bold=$'\e[1m'
 faint=$'\e[2m'
 italics=$'\e[3m'
-underline=$'\e[4m'
-
+underline=$'\e[4m'                                      
 # background color
 bg_black=$'\e[0;40m'
 bg_red=$'\e[0;41m'
@@ -137,9 +131,9 @@ function check () {
 function uprepo () {
     echo -e "\n$light_green[*]$reset Checking updates..."
     sleep 3
-    echo -e "\n$light_green[*]$reset Updating repo...\n"
+    echo -e "$light_green[*]$reset Updating repo...\n"
     sleep 3
-    git pull  "https://github.com/haithamaouati/penguin.git"
+    curl -o penguin.sh https://raw.githubusercontent.com/haithamaouati/penguin/main/penguin.sh
     echo -e "\n$light_green[✓]$reset Pepo updated.\n"
 }
 
