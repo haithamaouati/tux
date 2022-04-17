@@ -1,7 +1,7 @@
 # penguin
 
 ![GitHub repository](https://img.shields.io/badge/haithamaouati-penguin-blue?style=flat-square&logo=github)
-![GitHub version](https://img.shields.io/badge/version-1.3-yellow?style=flat-square)
+![GitHub version](https://img.shields.io/badge/version-1.4-yellow?style=flat-square)
 
 Penguin 🐧 script - All packages in one script for termux app.
 ## Screenshots
@@ -63,6 +63,7 @@ Penguin 🐧 script - All packages in one script for termux app.
    - [x] Install packages
    - [x] Setup storage
    - [x] Check root
+   - [x] Update Repo
 
 ## Environments
 
