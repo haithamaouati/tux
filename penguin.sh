@@ -1,5 +1,5 @@
 #!/bin/bash                                             # Author: Haitham Aouati
-# Lastest update: 17/04/2022
+# Lastest update: 20/04/2022
                                                                              # text color                                            black=$'\e[0;30m'                                       red=$'\e[0;31m'
 green=$'\e[0;32m'
 yellow=$'\e[0;33m'
@@ -120,6 +120,32 @@ function install () {
     exit
 }
 
+function clone () {
+    echo -e "$light_yellow  1)$reset Anonymously Hiding Tools"
+    echo -e "$light_yellow  2)$reset Information gathering tools"
+    echo -e "$light_yellow  3)$reset Wordlist Generator"
+    echo -e "$light_yellow  4)$reset Wireless attack tools"
+    echo -e "$light_yellow  5)$reset SQL Injection Tools"
+    echo -e "$light_yellow  6)$reset Phishing attack tools"
+    echo -e "$light_yellow  7)$reset Web Attack tools"
+    echo -e "$light_yellow  8)$reset Payload creation tools"
+    echo -e "$light_yellow  9)$reset Exploit framework"
+    echo -e "$light_yellow 10)$reset Reverse engineering tools"
+    echo -e "$light_yellow 11)$reset DDOS Attack Tools"
+    echo -e "$light_yellow 12)$reset Remote Administrator Tools (RAT)"
+    echo -e "$light_yellow 13)$reset Steganograhy tools"
+    echo -e "$light_yellow 14)$reset Other tools"
+    echo -e "$light_yellow 15)$reset Update All Tools"
+    echo -e "$light_yellow 0)$reset Exit\n"
+
+    read -p "#? " -e -n 1 -s choice;
+        case "$input" in
+                1) exit;;
+                0) close;;
+                *) echo -e "\n$red[!]$reset Not a valid cho>
+        esac
+}
+
 function check () {
     echo -e "\n$light_green[*]$reset Checking root...\n"
     sleep 3
@@ -131,7 +157,9 @@ function check () {
 }
 
 function uprepo () {
-    echo -e "$light_green[*]$reset Updating repository...\n"
+    echo -e "\n$light_green[*]$reset Checking updates..."
+    sleep 3
+    echo -e "$light_green[*]$reset Updating repo...\n"
     sleep 3
     git pull https://github.com/haithamaouati/penguin
     echo -e "\n$light_green[✓]$reset Repository updated.\n"
@@ -145,9 +173,10 @@ function close () {
 echo -e "$light_yellow 1)$reset Update Packages"
 echo -e "$light_yellow 2)$reset Upgrade Packages"
 echo -e "$light_yellow 3)$reset Install Packages"
-echo -e "$light_yellow 4)$reset Setup Storage"
-echo -e "$light_yellow 5)$reset Check Root"
-echo -e "$light_yellow 6)$reset Update Repo"
+echo -e "$light_yellow 4)$reset Clone Repos"
+echo -e "$light_yellow 5)$reset Setup Storage"
+echo -e "$light_yellow 6)$reset Check Root"
+echo -e "$light_yellow 7)$reset Update Repo"
 echo -e "$light_yellow 0)$reset Exit\n"
 
 read -p "#? " -e -n 1 -s choice;
@@ -155,9 +184,10 @@ read -p "#? " -e -n 1 -s choice;
             1) update;;
             2) upgrade;;
             3) install;;
+            4) clone;;
             4) setup;;
-            5) check;;
-            6) uprepo;;
+            6) check;;
+            7) uprepo;;
             0) close;;
             *) echo -e "\n$red[!]$reset Not a valid choice.\n";;
     esac
