@@ -47,6 +47,7 @@ Tux 🐧 script - All packages in one script for termux app.
 ## Usage
     ```
 6. Run the script
+    ```
     bash tux.sh
     ```
 
