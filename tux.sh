@@ -1,8 +1,9 @@
 #!/bin/bash                                             # Author: Haitham Aouati
-# Lastest update: 20/04/2022
+# Lastest update: 21/04/2022
                                                                              # text color                                            black=$'\e[0;30m'                                       red=$'\e[0;31m'
 green=$'\e[0;32m'
-yellow=$'\e[0;33m'                                      blue=$'\e[0;34m'
+yellow=$'\e[0;33m'
+blue=$'\e[0;34m'
 purple=$'\e[0;35m'
 cyan=$'\e[0;36m'
 gray=$'\e[0;90m'
@@ -24,7 +25,7 @@ bg_black=$'\e[0;40m'
 bg_red=$'\e[0;41m'
 bg_green=$'\e[0;42m'
 
-alias setup="bash seutp.sh"
+alias tux="bash tux.sh"
 
 if (( $EUID == 0 )); then
     echo "Please do not run as root"
@@ -44,12 +45,12 @@ cat << "EOF"
       \__/'---'\__/
 EOF
 
-echo -e "$reset$bold         Penguin$reset"
+echo -e "$reset$bold           Tux$reset"
 echo -e "All packages in one script\n"
 sleep 3
 echo -e "$reset Author:$blue Haitham Aouati"
-echo -e "$reset Version:$light_yellow 1.4 $white\n"
-echo -e "$reset Repo: https://github.com/haithamaouati/penguin\n"
+echo -e "$reset Version:$light_yellow 2.0 $white\n"
+echo -e "$reset Repo: https://github.com/haithamaouati/tux\n"
 
 un=$(whoami) # User name
 hn=$(uname -n) # Host name
@@ -114,7 +115,12 @@ function install () {
     pkg install unzip -yy
     pkg install unrar -yy
     pkg install openssh -yy
-    pkg install wget -yy    pkg install curl -yy
+    pkg install wget -yy
+    pkg install curl -yy
+    pkg install python2 -yy
+    pkg install python3 -yy
+    pkg install nmap -yy
+    pkg install nmap-ncat -yy
     echo -e "\n$light_green[✓]$reset Packages installed."
     exit
 }
@@ -130,11 +136,9 @@ function check () {
 }
 
 function uprepo () {
-    echo -e "\n$light_green[*]$reset Checking updates..."
-    sleep 3
     echo -e "$light_green[*]$reset Updating repo...\n"
     sleep 3
-    git pull https://github.com/haithamaouati/penguin
+    git pull https://github.com/haithamaouati/tux
     echo -e "\n$light_green[✓]$reset Repository updated.\n"
 }
 
