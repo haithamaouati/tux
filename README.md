@@ -1,12 +1,12 @@
-# penguin
+# tux
 
-![GitHub repository](https://img.shields.io/badge/haithamaouati-penguin-blue?style=flat-square&logo=github)
-![GitHub version](https://img.shields.io/badge/version-1.4-yellow?style=flat-square)
+![GitHub repository](https://img.shields.io/badge/haithamaouati-tux-blue?style=flat-square&logo=github)
+![GitHub version](https://img.shields.io/badge/version-2.0-yellow?style=flat-square)
 
-Penguin 🐧 script - All packages in one script for termux app.
+Tux 🐧 script - All packages in one script for termux app.
 ## Screenshots
 
-![Screenshot](https://raw.githubusercontent.com/haithamaouati/penguin/main/screenshot.jpg?raw=true "Optional Title")
+![Screenshot](https://raw.githubusercontent.com/haithamaouati/tux/main/screenshot.jpg?raw=true "Optional Title")
 
 ## Table of Contents
 
@@ -32,29 +32,23 @@ Penguin 🐧 script - All packages in one script for termux app.
 
 3. Clone the repository
     ```
-    git clone https://github.com/haithamaouati/penguin.git
+    git clone https://github.com/haithamaouati/tux.git
     ```
 4. Change to penguin directory
     ```
-    cd penguin
+    cd tux
     ```
     
 5. Change the access mode
     ```
-    chmod +x penguin.sh
+    chmod +x tux.sh
     ```
 
 ## Usage
 
- 1. Execute bash script
     ```
-    bash penguin.sh
+    bash tux.sh
     ```
-
-2. Execute bash script (method 2)
-   ```
-   ./penguin.sh
-   ```
 
 ## Features
 
