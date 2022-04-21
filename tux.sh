@@ -1,6 +1,10 @@
-#!/bin/bash                                             # Author: Haitham Aouati
+#!/bin/bash
+# Author: Haitham Aouati
 # Lastest update: 21/04/2022
-                                                                             # text color                                            black=$'\e[0;30m'                                       red=$'\e[0;31m'
+                                          
+# text color                  
+black=$'\e[0;30m'
+red=$'\e[0;31m'
 green=$'\e[0;32m'
 yellow=$'\e[0;33m'
 blue=$'\e[0;34m'
