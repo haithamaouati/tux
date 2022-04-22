@@ -1,8 +1,8 @@
 #!/bin/bash
 # Author: Haitham Aouati
-# Lastest update: 21/04/2022
-                                          
-# text color                  
+# Lastest update: 23 April, 2022
+
+# text color
 black=$'\e[0;30m'
 red=$'\e[0;31m'
 green=$'\e[0;32m'
@@ -73,18 +73,16 @@ td=$(date)
 echo -e "$light_green Time & date:$reset $td\n"
 
 function update () {
-    echo -e "\n$light_green[*]$reset Updating packages...\n"
-    sleep 3
-    pkg update -yy
-    echo -e "\n$light_green[✓]$reset Packages updated."
+    echo -e "\n$light_green[*]$reset Updating packages..."
+    pkg update -yy > /dev/null 2>&1
+    echo -e "$light_green[✓]$reset Packages updated.\n"
     exit
 }
 
 function upgrade () {
-    echo -e "\n$light_green[*]$reset Upgrading packages...\n"
-    sleep 3
-    pkg upgrade -yy
-    echo -e "\n$light_green[✓]$reset Packages upgrated."
+    echo -e "\n$light_green[*]$reset Upgrading packages..."
+    pkg upgrade -yy > /dev/null 2>&1
+    echo -e "$light_green[✓]$reset Packages upgrated.\n"
     exit
 }
 
@@ -106,22 +104,37 @@ function setup () {
 function install () {
     echo -e "\n$light_green[*]$reset Installing packages...\n"
     sleep 3
-    pkg install termux-auth -yy
-    pkg install tsu -yy
-    pkg install termux-api -yy
-    pkg install git -yy
-    pkg install nano -yy
-    pkg install vim -yy
-    pkg install neofetch -yy
-    pkg install cpufetch -yy
-    pkg install figlet -yy
-    pkg install zip -yy
-    pkg install unzip -yy
-    pkg install unrar -yy
-    pkg install openssh -yy
-    pkg install wget -yy
-    pkg install curl -yy
-    echo -e "\n$light_green[✓]$reset Packages installed."
+    pkg install termux-auth -yy > /dev/null 2>&1
+    echo -e "$light_green[✓]$reset termux-auth"
+    pkg install tsu -yy > /dev/null 2>&1
+    echo -e "$light_green[✓]$reset tsu"
+    pkg install termux-api -yy > /dev/null 2>&1
+    echo -e "$light_green[✓]$reset termux-api"
+    pkg install git -yy > /dev/null 2>&1
+    echo -e "$light_green[✓]$reset git"
+    pkg install nano -yy > /dev/null 2>&1
+    echo -e "$light_green[✓]$reset nano"
+    pkg install vim -yy > /dev/null 2>&1
+    echo -e "$light_green[✓]$reset vim"
+    pkg install neofetch -yy > /dev/null 2>&1
+    echo -e "$light_green[✓]$reset neofetch"
+    pkg install cpufetch -yy > /dev/null 2>&1
+    echo -e "$light_green[✓]$reset cpufetch"
+    pkg install figlet -yy > /dev/null 2>&1
+    echo -e "$light_green[✓]$reset figlet"
+    pkg install zip -yy > /dev/null 2>&1
+    echo -e "$light_green[✓]$reset zip"
+    pkg install unzip -yy > /dev/null 2>&1
+    echo -e "$light_green[✓]$reset unzip"
+    pkg install unrar -yy > /dev/null 2>&1
+    echo -e "$light_green[✓]$reset unrar"
+    pkg install openssh -yy > /dev/null 2>&1
+    echo -e "$light_green[✓]$reset openssh"
+    pkg install wget -yy > /dev/null 2>&1
+    echo -e "$light_green[✓]$reset wget"
+    pkg install curl -yy > /dev/null 2>&1
+    echo -e "$light_green[✓]$reset curl"
+    echo -e "\n$light_green[✓]$reset Packages installed.\n"
     exit
 }
 
