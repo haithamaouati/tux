@@ -58,7 +58,6 @@ Tux 🐧 script - All packages in one script for termux app.
    - [x] Upgrade packages
    - [x] Install packages
    - [x] Setup storage
-   - [x] Check root
    - [x] Update Repo
 
 ## Environments
@@ -71,7 +70,7 @@ Tux 🐧 script - All packages in one script for termux app.
 
 ## Author
 
-Made with **bugs** by [**Haitham Aouati**](https://twitter.com/haithamaouati)
+Made with **bugs** by [**Haitham Aouati**](https://t.me/haithamaouati)
 
 ([Table of Contents](#table-of-contents))
 
