@@ -53,7 +53,7 @@ echo -e "$reset$bold           Tux$reset"
 echo -e "All packages in one script\n"
 sleep 3
 echo -e "$reset Author:$blue Haitham Aouati"
-echo -e "$reset Version:$light_yellow 2.0 $white\n"
+echo -e "$reset Version:$light_yellow 2.1 $white\n"
 echo -e "$reset Repo: https://github.com/haithamaouati/tux\n"
 
 un=$(whoami) # User name
