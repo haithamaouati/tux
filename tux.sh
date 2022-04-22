@@ -11,8 +11,7 @@ blue=$'\e[0;34m'
 purple=$'\e[0;35m'
 cyan=$'\e[0;36m'
 gray=$'\e[0;90m'
-light_red=$'\e[0;91m'
-light_green=$'\e[0;92m'
+light_red=$'\e[0;91m'                                   light_green=$'\e[0;92m'
 light_yellow=$'\e[0;93m'
 light_blue=$'\e[0;94m'
 white=$'\e[0;37m'
@@ -89,14 +88,11 @@ function upgrade () {
 function setup () {
     echo -e "\n$light_green[*]$reset Setup storage..."
     sleep 3
-    echo -e "$light_green[*]$reset Allowing permissions...\n"
     if [[ -d storage ]] ; then
-        ls -d storage
-        echo -e "\n$light_yellow[!]$reset Permissions already present.\n"
+        echo -e "$light_yellow[!]$reset Done.\n"
     else
         termux-setup-storage
-        ls -d storage
-        echo -e "\n$light_green[✓]$reset Permissions Allowed.\n"
+        echo -e "$light_green[✓]$reset Done.\n"
         exit
     fi
 }
@@ -138,21 +134,11 @@ function install () {
     exit
 }
 
-function check () {
-    echo -e "\n$light_green[*]$reset Checking root...\n"
+function latest () {
+    echo -e "$light_green[*]$reset Updating repository..."
     sleep 3
-    if (( $EUID == 0 )); then
-        echo -e "$light_green[✓]$reset You are root.\n"
-    else
-        echo -e "$light_red[×]$reset You are not root.\n"
-    fi
-}
-
-function uprepo () {
-    echo -e "$light_green[*]$reset Updating repository...\n"
-    sleep 3
-    git pull https://github.com/haithamaouati/tux
-    echo -e "\n$light_green[✓]$reset Repository updated.\n"
+    git pull https://github.com/haithamaouati/tux > /dev/null 2>&1
+    echo -e "$light_green[✓]$reset Repository updated.\n"
 }
 
 function close () {
@@ -164,8 +150,7 @@ echo -e "$light_yellow 1)$reset Update Packages"
 echo -e "$light_yellow 2)$reset Upgrade Packages"
 echo -e "$light_yellow 3)$reset Install Packages"
 echo -e "$light_yellow 4)$reset Setup Storage"
-echo -e "$light_yellow 5)$reset Check Root"
-echo -e "$light_yellow 6)$reset Update Repo"
+echo -e "$light_yellow 5)$reset Update Repo"
 echo -e "$light_yellow 0)$reset Exit\n"
 
 read -p "#? " -e -n 1 -s choice;
@@ -174,8 +159,7 @@ read -p "#? " -e -n 1 -s choice;
             2) upgrade;;
             3) install;;
             4) setup;;
-            5) check;;
-            6) uprepo;;
+            5) latest;;
             0) close;;
             *) echo -e "\n$red[!]$reset Not a valid choice.\n";;
     esac
