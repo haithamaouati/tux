@@ -1,7 +1,7 @@
 # tux
 
 ![GitHub repository](https://img.shields.io/badge/haithamaouati-tux-blue?style=flat-square&logo=github)
-![GitHub version](https://img.shields.io/badge/version-2.0-yellow?style=flat-square)
+![GitHub version](https://img.shields.io/badge/version-2.1-yellow?style=flat-square)
 
 Tux 🐧 script - All packages in one script for termux app.
 ## Screenshots
