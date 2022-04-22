@@ -121,10 +121,6 @@ function install () {
     pkg install openssh -yy
     pkg install wget -yy
     pkg install curl -yy
-    pkg install python2 -yy
-    pkg install python3 -yy
-    pkg install nmap -yy
-    pkg install nmap-ncat -yy
     echo -e "\n$light_green[✓]$reset Packages installed."
     exit
 }
@@ -140,7 +136,7 @@ function check () {
 }
 
 function uprepo () {
-    echo -e "$light_green[*]$reset Updating repo...\n"
+    echo -e "$light_green[*]$reset Updating repository...\n"
     sleep 3
     git pull https://github.com/haithamaouati/tux
     echo -e "\n$light_green[✓]$reset Repository updated.\n"
