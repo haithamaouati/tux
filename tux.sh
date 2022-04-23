@@ -106,6 +106,7 @@ function install () {
     echo -e "$light_green[✓]$reset tsu"
     pkg install termux-api -yy > /dev/null 2>&1
     echo -e "$light_green[✓]$reset termux-api"
+    pkg install root-repo -yy > /dev/null 2>&1
     pkg install git -yy > /dev/null 2>&1
     echo -e "$light_green[✓]$reset git"
     pkg install nano -yy > /dev/null 2>&1
@@ -130,6 +131,14 @@ function install () {
     echo -e "$light_green[✓]$reset wget"
     pkg install curl -yy > /dev/null 2>&1
     echo -e "$light_green[✓]$reset curl"
+    pkg install python2 -yy > /dev/null 2>&1
+    echo -e "$light_green[✓]$reset python2"
+    pkg install python3 -yy > /dev/null 2>&1
+    echo -e "$light_green[✓]$reset curl"
+    pkg install php -yy > /dev/null 2>&1
+    echo -e "$light_green[✓]$reset php"
+    pkg install clang -yy > /dev/null 2>&1
+    echo -e "$light_green[✓]$reset clang"
     echo -e "\n$light_green[✓]$reset Packages installed.\n"
     exit
 }
