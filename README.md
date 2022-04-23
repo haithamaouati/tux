@@ -3,7 +3,7 @@
 ![GitHub repository](https://img.shields.io/badge/haithamaouati-tux-blue?style=flat-square&logo=github)
 ![GitHub version](https://img.shields.io/badge/version-2.1-yellow?style=flat-square)
 
-Tux 🐧 script - All packages in one script for termux app.
+Tux 🐧 is a simple bash script for update & upgrade and install basic packages in termux app.
 ## Screenshots
 
 ![Screenshot](https://raw.githubusercontent.com/haithamaouati/tux/main/screenshot.jpg?raw=true "Optional Title")
