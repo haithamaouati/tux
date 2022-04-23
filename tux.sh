@@ -11,9 +11,12 @@ blue=$'\e[0;34m'
 purple=$'\e[0;35m'
 cyan=$'\e[0;36m'
 gray=$'\e[0;90m'
-light_red=$'\e[0;91m'                                   light_green=$'\e[0;92m'
+light_red=$'\e[0;91m'
+light_green=$'\e[0;92m'
 light_yellow=$'\e[0;93m'
 light_blue=$'\e[0;94m'
+light_purple=$'\e[0;95m'
+light_cyan=$'\e[0;96m'
 white=$'\e[0;37m'
 
 # text format
@@ -50,7 +53,6 @@ EOF
 
 echo -e "$reset$bold           Tux$reset"
 echo -e "All packages in one script\n"
-sleep 3
 echo -e "$reset Author:$blue Haitham Aouati"
 echo -e "$reset Version:$light_yellow 2.1 $white\n"
 echo -e "$reset Repo: https://github.com/haithamaouati/tux\n"
@@ -72,24 +74,23 @@ td=$(date)
 echo -e "$light_green Time & date:$reset $td\n"
 
 function update () {
-    echo -e "\n$light_green[*]$reset Updating packages..."
+    echo -e "\n$blue[*]$reset Updating packages..."
     pkg update -yy > /dev/null 2>&1
     echo -e "$light_green[✓]$reset Packages updated.\n"
     exit
 }
 
 function upgrade () {
-    echo -e "\n$light_green[*]$reset Upgrading packages..."
+    echo -e "\n$blue[*]$reset Upgrading packages..."
     pkg upgrade -yy > /dev/null 2>&1
     echo -e "$light_green[✓]$reset Packages upgrated.\n"
     exit
 }
 
 function setup () {
-    echo -e "\n$light_green[*]$reset Setup storage..."
-    sleep 3
+    echo -e "\n$blue[*]$reset Setup storage..."
     if [[ -d storage ]] ; then
-        echo -e "$light_yellow[!]$reset Done.\n"
+        echo -e "$light_yellow[!]$reset storage alredy exist.\n"
     else
         termux-setup-storage
         echo -e "$light_green[✓]$reset Done.\n"
@@ -98,8 +99,7 @@ function setup () {
 }
 
 function install () {
-    echo -e "\n$light_green[*]$reset Installing packages...\n"
-    sleep 3
+    echo -e "\n$blue[*]$reset Installing packages...\n"
     pkg install termux-auth -yy > /dev/null 2>&1
     echo -e "$light_green[✓]$reset termux-auth"
     pkg install tsu -yy > /dev/null 2>&1
@@ -136,7 +136,6 @@ function install () {
 
 function latest () {
     echo -e "$light_green[*]$reset Updating repository..."
-    sleep 3
     git pull https://github.com/haithamaouati/tux > /dev/null 2>&1
     echo -e "$light_green[✓]$reset Repository updated.\n"
 }
@@ -153,7 +152,7 @@ echo -e "$light_yellow 4)$reset Setup Storage"
 echo -e "$light_yellow 5)$reset Update Repo"
 echo -e "$light_yellow 0)$reset Exit\n"
 
-read -p "#? " -e -n 1 -s choice;
+read -p "#? " choice;
     case "$choice" in
             1) update;;
             2) upgrade;;
