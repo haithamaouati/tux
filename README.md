@@ -14,6 +14,7 @@ Tux 🐧 is a simple bash script for update & upgrade and install basic packages
 - [Usage](#usage)
 - [Features](#features)
 - [Environments](#environments)
+- [Changelog](#changelog)
 - [Disclaimer](#disclaimer)
 - [Author](#author)
 - [License](#license)
@@ -63,6 +64,10 @@ Tux 🐧 is a simple bash script for update & upgrade and install basic packages
 ## Environments
 
 * [**Termux**](https://termux.com)
+
+## Changelog
+April 22, 2024
+* [ADD] New packages
 
 ## Disclaimer
 
