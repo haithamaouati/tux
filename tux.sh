@@ -1,41 +1,43 @@
 #!/bin/bash
 # Author: Haitham Aouati
-# Lastest update: 23 April, 2022
 
-# text color
-black=$'\e[0;30m'
-red=$'\e[0;31m'
-green=$'\e[0;32m'
-yellow=$'\e[0;33m'
-blue=$'\e[0;34m'
-purple=$'\e[0;35m'
-cyan=$'\e[0;36m'
-gray=$'\e[0;90m'
-light_red=$'\e[0;91m'
-light_green=$'\e[0;92m'
-light_yellow=$'\e[0;93m'
-light_blue=$'\e[0;94m'
-light_purple=$'\e[0;95m'
-light_cyan=$'\e[0;96m'
+# Foreground color
+fg_black=$'\e[0;30m'
+fg_red=$'\e[0;31m'
+fg_green=$'\e[0;32m'
+fg_yellow=$'\e[0;33m'
+fg_blue=$'\e[0;34m'
+fg_purple=$'\e[0;35m'
+fg_cyan=$'\e[0;36m'
+fg_gray=$'\e[0;90m'
+
+red=$'\e[0;91m'
+green=$'\e[0;92m'
+yellow=$'\e[0;93m'
+blue=$'\e[0;94m'
+purple=$'\e[0;95m'
+cyan=$'\e[0;96m'
 white=$'\e[0;37m'
 
-# text format
+# Background color
+bg_red=$'\e[0;41m'
+
+# ANSI code
 reset=$'\e[0m'
 bold=$'\e[1m'
 faint=$'\e[2m'
 italics=$'\e[3m'
 underline=$'\e[4m'
 
-# background color
-bg_black=$'\e[0;40m'
-bg_red=$'\e[0;41m'
-bg_green=$'\e[0;42m'
-
-alias tux="bash tux.sh"
-
 if (( $EUID == 0 )); then
-    echo "Please do not run as root"
+    echo "Please do not run as root."
     exit
+fi
+
+if [[ -d storage ]] ; then
+    echo -e "$light_yellow[!]$reset storage alredy exist.\n"
+else
+    termux-setup-storage
 fi
 
 clear
@@ -53,121 +55,105 @@ EOF
 
 echo -e "$reset$bold           Tux$reset"
 echo -e "All packages in one script\n"
-echo -e "$reset Author:$blue Haitham Aouati"
-echo -e "$reset Version:$light_yellow 2.1 $white\n"
+echo -e "$reset Author:$fg_blue Haitham Aouati"
+echo -e "$reset Version:$fg_yellow 2.5 $white\n"
 echo -e "$reset Repo: https://github.com/haithamaouati/tux\n"
 
 un=$(whoami) # User name
 hn=$(uname -n) # Host name
-echo -e "$light_green $un$reset@$light_green$hn"
+echo -e "$green $un$reset@$green$hn"
 echo -e "$reset -----------------"
 os=$(uname -o) # Operating system
 mn=$(uname -m) # Machine name
-echo -e "$light_green OS:$reset $os$yellow $mn"
+echo -e "$green OS:$reset $os$fg_yellow $mn"
 kn=$(uname -s) # Kernel name
 kv=$(uname -v) # Kernel version
 kr=$(uname -r) # Kernel release
-echo -e "$light_green Kernel:$reset $kn$yellow $kr"
+echo -e "$green Kernel:$reset $kn$fg_yellow $kr"
 upt=$(uptime -p)
-echo -e "$light_green Uptime:$reset $upt"
+echo -e "$green Uptime:$reset $upt"
 td=$(date)
-echo -e "$light_green Time & date:$reset $td\n"
+echo -e "$green Time & date:$reset $td\n"
 
-function update () {
-    echo -e "\n$blue[*]$reset Updating packages..."
-    pkg update -yy > /dev/null 2>&1
-    echo -e "$light_green[✓]$reset Packages updated.\n"
-    exit
+function update_packages () {
+    echo -e "\n$yellow[*]$reset Updating packages..."
+    pkg update -y > /dev/null 2>&1
+    echo -e "$green[✓]$reset Packages updated."
+    main_menu
 }
 
-function upgrade () {
-    echo -e "\n$blue[*]$reset Upgrading packages..."
-    pkg upgrade -yy > /dev/null 2>&1
-    echo -e "$light_green[✓]$reset Packages upgrated.\n"
-    exit
-}
-
-function setup () {
-    echo -e "\n$blue[*]$reset Setup storage..."
-    if [[ -d storage ]] ; then
-        echo -e "$light_yellow[!]$reset storage alredy exist.\n"
-    else
-        termux-setup-storage
-        echo -e "$light_green[✓]$reset Done.\n"
-        exit
-    fi
-}
-
-function install () {
-    echo -e "\n$blue[*]$reset Installing packages...\n"
-    pkg install termux-auth -yy > /dev/null 2>&1
-    echo -e "$light_green[✓]$reset termux-auth"
-    pkg install tsu -yy > /dev/null 2>&1
-    echo -e "$light_green[✓]$reset tsu"
-    pkg install termux-api -yy > /dev/null 2>&1
-    echo -e "$light_green[✓]$reset termux-api"
-    pkg install root-repo -yy > /dev/null 2>&1
-    pkg install git -yy > /dev/null 2>&1
-    echo -e "$light_green[✓]$reset git"
-    pkg install nano -yy > /dev/null 2>&1
-    echo -e "$light_green[✓]$reset nano"
-    pkg install vim -yy > /dev/null 2>&1
-    echo -e "$light_green[✓]$reset vim"
-    pkg install neofetch -yy > /dev/null 2>&1
-    echo -e "$light_green[✓]$reset neofetch"
-    pkg install cpufetch -yy > /dev/null 2>&1
-    echo -e "$light_green[✓]$reset cpufetch"
-    pkg install figlet -yy > /dev/null 2>&1
-    echo -e "$light_green[✓]$reset figlet"
-    pkg install zip -yy > /dev/null 2>&1
-    echo -e "$light_green[✓]$reset zip"
-    pkg install unzip -yy > /dev/null 2>&1
-    echo -e "$light_green[✓]$reset unzip"
-    pkg install unrar -yy > /dev/null 2>&1
-    echo -e "$light_green[✓]$reset unrar"
-    pkg install openssh -yy > /dev/null 2>&1
-    echo -e "$light_green[✓]$reset openssh"
-    pkg install wget -yy > /dev/null 2>&1
-    echo -e "$light_green[✓]$reset wget"
-    pkg install curl -yy > /dev/null 2>&1
-    echo -e "$light_green[✓]$reset curl"
-    pkg install python2 -yy > /dev/null 2>&1
-    echo -e "$light_green[✓]$reset python2"
-    pkg install python3 -yy > /dev/null 2>&1
-    echo -e "$light_green[✓]$reset curl"
-    pkg install php -yy > /dev/null 2>&1
-    echo -e "$light_green[✓]$reset php"
-    pkg install clang -yy > /dev/null 2>&1
-    echo -e "$light_green[✓]$reset clang"
-    echo -e "\n$light_green[✓]$reset Packages installed.\n"
-    exit
-}
-
-function latest () {
-    echo -e "$light_green[*]$reset Updating repository..."
-    git pull https://github.com/haithamaouati/tux > /dev/null 2>&1
-    echo -e "$light_green[✓]$reset Repository updated.\n"
+function upgrade_packages () {
+    echo -e "\n$yellow[*]$reset Upgrading packages..."
+    pkg upgrade -y > /dev/null 2>&1
+    echo -e "$green[✓]$reset Packages upgrated."
+    main_menu
 }
 
 function close () {
-    echo -e "\n$reset Time spend:$light_green $SECONDS seconds\n"
     exit
 }
 
-echo -e "$light_yellow 1)$reset Update Packages"
-echo -e "$light_yellow 2)$reset Upgrade Packages"
-echo -e "$light_yellow 3)$reset Install Packages"
-echo -e "$light_yellow 4)$reset Setup Storage"
-echo -e "$light_yellow 5)$reset Update Repo"
-echo -e "$light_yellow 0)$reset Exit\n"
+function install_packages () {
+    echo -e "\n$yellow[*]$reset Installing packages...\n"
+    pkg install tsu -y > /dev/null 2>&1
+    echo -e "$green[✓]$reset Package:$green tsu$reset installed."
+    pkg install termux-api -y > /dev/null 2>&1
+    echo -e "$green[✓]$reset Package:$green termux-api$reset installed."
+    pkg install termux-auth -y > /dev/null 2>&1
+    echo -e "$green[✓]$reset Package:$green termux-auth$reset installed."
+    pkg install termux-tools -y > /dev/null 2>&1
+    echo -e "$green[✓]$reset Package:$green termux-tools$reset installed."
+    pkg install git -y > /dev/null 2>&1
+    echo -e "$green[✓]$reset Package:$green git$reset installed."
+    pkg install wget -y > /dev/null 2>&1
+    echo -e "$green[✓]$reset Package:$green wget$reset installed."
+    pkg install curl -y > /dev/null 2>&1
+    echo -e "$green[✓]$reset Package:$green curl$reset installed."
+    pkg install nano -y > /dev/null 2>&1
+    echo -e "$green[✓]$reset Package:$green nano$reset installed."
+    pkg install vim -y > /dev/null 2>&1
+    echo -e "$green[✓]$reset Package:$green vim$reset installed."
+    pkg install zip -y > /dev/null 2>&1
+    echo -e "$green[✓]$reset Package:$green zip$reset installed."
+    pkg install unzip -y > /dev/null 2>&1
+    echo -e "$green[✓]$reset Package:$green unzip$reset installed."
+    pkg install unrar -y > /dev/null 2>&1
+    echo -e "$green[✓]$reset Package:$green unrar$reset installed."
+    pkg install figlet -y > /dev/null 2>&1
+    echo -e "$green[✓]$reset Package:$green figlet$reset installed."
+    pkg install neofetch -y > /dev/null 2>&1
+    echo -e "$green[✓]$reset Package:$green neofetch$reset installed."
+    pkg install cpufetch -y > /dev/null 2>&1
+    echo -e "$green[✓]$reset Package:$green cpufetch$reset installed."
+    echo -e "\n$light_green[✓]$reset Packages installed."
+    main_menu
+}
 
-read -p "#? " choice;
-    case "$choice" in
-            1) update;;
-            2) upgrade;;
-            3) install;;
-            4) setup;;
-            5) latest;;
+function close () {
+    echo -e "\n$reset Time spend:$green $SECONDS seconds\n"
+    exit
+}
+
+function error () {
+    echo -e "\n$red[×]$reset Option: $purple$choice$reset not exist."
+    main_menu
+}
+
+function main_menu () {
+    echo -e "\nMain menu\n"
+    echo -e "$purple 1)$reset Update packages"
+    echo -e "$purple 2)$reset Upgrade packages"
+    echo -e "$purple 3)$reset Install packages"
+    echo -e "$purple 0)$reset Close\n"
+
+    read -p "Choice: " choice;
+        case $choice in
+            1) update_packages;;
+            2) upgrade_packages;;
+            3) install_packages;;
             0) close;;
-            *) echo -e "\n$red[!]$reset Not a valid choice.\n";;
-    esac
+            *) error;;
+        esac
+}
+
+main_menu
