@@ -35,7 +35,7 @@ Tux 🐧 is a simple bash script for update & upgrade and install basic packages
     ```
     git clone https://github.com/haithamaouati/tux.git
     ```
-4. Change to penguin directory
+4. Change to tux directory
     ```
     cd tux
     ```
