@@ -3,7 +3,7 @@
 ![GitHub repository](https://img.shields.io/badge/haithamaouati-tux-blue?style=flat-square&logo=github)
 ![GitHub version](https://img.shields.io/badge/version-2.5-yellow?style=flat-square)
 
-Tux 🐧 is a simple bash script for update & upgrade and install basic packages in termux app.
+Tux 🐧 is a simple bash script for update & upgrade and install basic packages in linux distos.
 ## Screenshots
 
 ![Screenshot](https://raw.githubusercontent.com/haithamaouati/tux/main/screenshot.jpg?raw=true "Optional Title")
@@ -61,10 +61,13 @@ Tux 🐧 is a simple bash script for update & upgrade and install basic packages
 
 ## Environments
 
+* Linux
 * [**Termux**](https://termux.com)
 
 ## Changelog
-April 18, 2024
+May 16, 2022
+* [ADD] Support Linux
+April 18, 2022
 * [ADD] New packages
 
 ## Disclaimer
@@ -73,7 +76,7 @@ April 18, 2024
 
 ## Author
 
-Made with **bugs** by [**Haitham Aouati**](https://t.me/haithamaouati)
+Coded with ❤ by [**Haitham Aouati**](https://t.me/haithamaouati)
 
 ([Table of Contents](#table-of-contents))
 
