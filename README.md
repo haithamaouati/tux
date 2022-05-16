@@ -3,7 +3,7 @@
 ![GitHub repository](https://img.shields.io/badge/haithamaouati-tux-blue?style=flat-square&logo=github)
 ![GitHub version](https://img.shields.io/badge/version-2.5-yellow?style=flat-square)
 
-Tux 🐧 is a simple bash script for update & upgrade and install basic packages in linux distos.
+Tux 🐧 is a simple bash script for update & upgrade and install basic packages in Termux app.
 ## Screenshots
 
 ![Screenshot](https://raw.githubusercontent.com/haithamaouati/tux/main/screenshot.jpg?raw=true "Optional Title")
@@ -23,7 +23,7 @@ Tux 🐧 is a simple bash script for update & upgrade and install basic packages
 
 1. Update & upgrade packages
     ```
-    pkg update -yy && apt upgrade -yy
+    pkg update -yy && pkg upgrade -yy
     ```
     
 2. Install git package
@@ -61,14 +61,12 @@ Tux 🐧 is a simple bash script for update & upgrade and install basic packages
 
 ## Environments
 
-* Linux
 * [**Termux**](https://termux.com)
 
 ## Changelog
+
 May 16, 2022
-* [ADD] Support Linux
-April 18, 2022
-* [ADD] New packages
+* [Fix] Main menu options
 
 ## Disclaimer
 
