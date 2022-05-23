@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Haitham Aouati
 
-# Foreground color
+# Foreground colors
 fg_black=$'\e[0;30m'
 fg_red=$'\e[0;31m'
 fg_green=$'\e[0;32m'
@@ -13,34 +13,31 @@ fg_gray=$'\e[0;90m'
 
 red=$'\e[0;91m'
 green=$'\e[0;92m'
-yellow=$'\e[0;93m'
-blue=$'\e[0;94m'
+yellow=$'\e[0;93m'                                      blue=$'\e[0;94m'
 purple=$'\e[0;95m'
 cyan=$'\e[0;96m'
 white=$'\e[0;37m'
 
-# Background color
+# Background colors
 bg_red=$'\e[0;41m'
 
-# ANSI code
+# ANSI formats
 reset=$'\e[0m'
 bold=$'\e[1m'
 faint=$'\e[2m'
 italics=$'\e[3m'
 underline=$'\e[4m'
 
+# Check root superuser
+
 if (( $EUID == 0 )); then
     echo "Please do not run as root."
     exit
 fi
 
-if [[ -d storage ]] ; then
-    echo -e "$light_yellow[!]$reset storage alredy exist.\n"
-else
-    termux-setup-storage
-fi
-
 clear
+
+# Banner
 
 cat << "EOF"
           .---.
@@ -53,10 +50,11 @@ cat << "EOF"
       \__/'---'\__/
 EOF
 
-echo -e "$reset$bold           Tux$reset"
-echo -e "All packages in one script\n"
+# Script info
+
+echo -e "$reset$bold           Tux$reser\n"
 echo -e "$reset Author:$fg_blue Haitham Aouati"
-echo -e "$reset Version:$fg_yellow 2.5 $white\n"
+echo -e "$reset Version:$fg_yellow 3.0 $white\n"
 echo -e "$reset Repo: https://github.com/haithamaouati/tux\n"
 
 un=$(whoami) # User name
@@ -73,7 +71,9 @@ echo -e "$green Kernel:$reset $kn$fg_yellow $kr"
 upt=$(uptime -p)
 echo -e "$green Uptime:$reset $upt"
 td=$(date)
-echo -e "$green Time & date:$reset $td\n"
+echo -e "$green Time & date:$reset $td"
+
+# Update packages
 
 function update_packages () {
     echo -e "\n$yellow[*]$reset Updating packages..."
@@ -82,6 +82,8 @@ function update_packages () {
     main_menu
 }
 
+# Upgrade packages
+
 function upgrade_packages () {
     echo -e "\n$yellow[*]$reset Upgrading packages..."
     pkg upgrade -y > /dev/null 2>&1
@@ -89,9 +91,7 @@ function upgrade_packages () {
     main_menu
 }
 
-function close () {
-    exit
-}
+# Install packages
 
 function install_packages () {
     echo -e "\n$yellow[*]$reset Installing packages...\n"
@@ -129,22 +129,28 @@ function install_packages () {
     main_menu
 }
 
+# Close script
+
 function close () {
     echo -e "\n$reset Time spend:$green $SECONDS seconds\n"
     exit
 }
 
+# Incorrect choice
+
 function error () {
-    echo -e "\n$red[×]$reset Option: $purple$choice$reset not exist."
+    echo -e "\n$red[!]$reset Option: $fg_blue$choice$reset not exist."
     main_menu
 }
 
+# Main menu
+
 function main_menu () {
     echo -e "\nMain menu\n"
-    echo -e "$purple 1)$reset Update packages"
-    echo -e "$purple 2)$reset Upgrade packages"
-    echo -e "$purple 3)$reset Install packages"
-    echo -e "$purple 0)$reset Close\n"
+    echo -e "$fg_blue 1)$reset Update packages"
+    echo -e "$fg_blue 2)$reset Upgrade packages"
+    echo -e "$fg_blue 3)$reset Install packages"
+    echo -e "$fg_blue 0)$reset Close\n"
 
     read -p "Choice: " choice;
         case $choice in
