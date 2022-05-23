@@ -1,7 +1,7 @@
 # tux
 
 ![GitHub repository](https://img.shields.io/badge/haithamaouati-tux-blue?style=flat-square&logo=github)
-![GitHub version](https://img.shields.io/badge/version-2.5-yellow?style=flat-square)
+![GitHub version](https://img.shields.io/badge/version-3.0-yellow?style=flat-square)
 
 Tux 🐧 is a simple bash script for update & upgrade and install basic packages in Termux app.
 ## Screenshots
